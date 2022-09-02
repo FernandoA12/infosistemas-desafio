@@ -12,7 +12,7 @@ export class Vehicle {
   constructor(props: Omit<Vehicle, "toData">) {
     const placaRegex = /^[a-zA-Z]{3}\d{4}|^[a-zA-Z]{3}\d{1}[a-zA-Z]{1}\d{2}/i;
     const chassiRegex = /^\w{17}/i;
-    const renavamRegex = /^\w{11}/i;
+    const renavamRegex = /^\d{11}/i;
 
     if (!placaRegex.test(props.placa)) {
       throw new VehicleFieldIsntValid("placa");
