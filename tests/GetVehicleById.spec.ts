@@ -12,7 +12,7 @@ const vehicles: Vehicle[] = [
     chassi: "xxxxxxxxxxxxxxxxx",
     marca: "any",
     modelo: "any",
-    renavam: "xxxxxxxxxxx",
+    renavam: "00000000000",
   }),
 ];
 
