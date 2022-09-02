@@ -25,7 +25,7 @@ yarn dev
 - Lista de Veículos
 
 ```rest
-  GET /vehicles;
+  GET /vehicles
 ```
 
 - Ver dados de um Veículo pelo id
