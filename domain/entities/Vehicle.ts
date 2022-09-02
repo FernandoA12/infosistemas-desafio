@@ -1,5 +1,7 @@
 import { VehicleFieldIsntValid } from "../errors/VehicleFieldIsntValid";
 
+export type VehicleProps = Omit<Vehicle, "toData" | "update">;
+
 export class Vehicle {
   public readonly id!: string;
   public placa!: string;
@@ -9,20 +11,24 @@ export class Vehicle {
   public marca!: string;
   public ano!: number;
 
-  constructor(props: Omit<Vehicle, "toData">) {
+  constructor(props: VehicleProps) {
+    this.update(props);
+  }
+
+  update(props: Partial<VehicleProps>) {
     const placaRegex = /^[a-zA-Z]{3}\d{4}|^[a-zA-Z]{3}\d{1}[a-zA-Z]{1}\d{2}/i;
     const chassiRegex = /^\w{17}/i;
     const renavamRegex = /^\d{11}/i;
 
-    if (!placaRegex.test(props.placa)) {
+    if (props.placa && !placaRegex.test(props.placa)) {
       throw new VehicleFieldIsntValid("placa");
     }
 
-    if (!chassiRegex.test(props.chassi)) {
+    if (props.chassi && !chassiRegex.test(props.chassi)) {
       throw new VehicleFieldIsntValid("chassi");
     }
 
-    if (!renavamRegex.test(props.renavam)) {
+    if (props.renavam && !renavamRegex.test(props.renavam)) {
       throw new VehicleFieldIsntValid("renavam");
     }
 
@@ -30,7 +36,7 @@ export class Vehicle {
   }
 
   toData() {
-    const { toData, ...vehicle } = this;
+    const { toData, update, ...vehicle } = this;
     return vehicle;
   }
 }

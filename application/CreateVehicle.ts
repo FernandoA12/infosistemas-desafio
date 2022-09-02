@@ -1,6 +1,6 @@
 import { VehiclesRepository } from "../domain/repositories/VehiclesRepository";
 import { Identifier } from "../infra/security/Identifier";
-import { Vehicle } from "../domain/entities/Vehicle";
+import { Vehicle, VehicleProps } from "../domain/entities/Vehicle";
 
 export class CreateVehicle {
   constructor(
@@ -8,7 +8,7 @@ export class CreateVehicle {
     private identifier: Identifier
   ) {}
 
-  async execute(props: Omit<Vehicle, "toData" | "id">) {
+  async execute(props: Omit<VehicleProps, "id">) {
     const vehicle = new Vehicle({
       id: this.identifier.createId(),
       ...props,
