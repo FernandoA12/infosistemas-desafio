@@ -5,7 +5,7 @@
   "author": "Fernando Souza <fernando.souza@doxacode.com.br>",
   "license": "MIT",
   "scripts": {
-    "test": "mocha --watch tests/* application/* domain/* infra/* index.ts"
+    "test": "mocha --watch tests/* application/* domain/*"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",
