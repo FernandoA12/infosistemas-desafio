@@ -2,7 +2,7 @@ import { Vehicle } from "../../domain/entities/Vehicle";
 import { VehiclesRepository } from "../../domain/repositories/VehiclesRepository";
 import { Connection } from "../database/Connection";
 
-export class VehiclesRepositoryJSONDB implements VehiclesRepository {
+export class VehiclesRepositoryDatabase implements VehiclesRepository {
   constructor(private connection: Connection) {
     this.connection.setCollection("vehicles");
   }
