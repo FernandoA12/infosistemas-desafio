@@ -24,46 +24,46 @@ yarn dev
 
 - Lista de Veículos
 
-```typescript
+```rest
   GET /vehicles;
 ```
 
 - Ver dados de um Veículo pelo id
 
-```typescript
+```rest
   GET /vehicles/:id
 ```
 
 - Alterar dados de veículo pelo id
 
-```typescript
+```rest
   PUT /vehicles/:id
   {
-		"placa": "XXX9999",
-		"chassi": "XXXXXXXXXXXXXXXXX",
-		"renavam": "99999999999",
-		"modelo": "nome do modelo",
-		"marca": "nome da marca",
-		"ano": 2014,
-	}
+    "placa": "XXX9999",
+    "chassi": "XXXXXXXXXXXXXXXXX",
+    "renavam": "99999999999",
+    "modelo": "nome do modelo",
+    "marca": "nome da marca",
+    "ano": 2014,
+  }
 ```
 
 - Criar novos registros de veículo
 
-```typescript
+```rest
   POST /vehicles/:id
   {
-		"placa": "XXX9999",
-		"chassi": "XXXXXXXXXXXXXXXXX",
-		"renavam": "99999999999",
-		"modelo": "nome do modelo",
-		"marca": "nome da marca",
-		"ano": 2014,
-	}
+    "placa": "XXX9999",
+    "chassi": "XXXXXXXXXXXXXXXXX",
+    "renavam": "99999999999",
+    "modelo": "nome do modelo",
+    "marca": "nome da marca",
+    "ano": 2014,
+  }
 ```
 
 - Remover veículo pelo id
 
-```typescript
+```rest
   DELETE /vehicles/:id
 ```
