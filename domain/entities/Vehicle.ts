@@ -13,12 +13,18 @@ export class Vehicle {
 
   constructor(props: VehicleProps) {
     this.update(props);
+
+    if (props.id) {
+      this.id = props.id;
+    }
   }
 
-  update(props: Partial<VehicleProps>) {
+  update(data: Partial<VehicleProps>) {
     const placaRegex = /^[a-zA-Z]{3}\d{4}|^[a-zA-Z]{3}\d{1}[a-zA-Z]{1}\d{2}/i;
     const chassiRegex = /^\w{17}/i;
     const renavamRegex = /^\d{11}/i;
+
+    const { id, ...props } = data;
 
     if (props.placa && !placaRegex.test(props.placa)) {
       throw new VehicleFieldIsntValid("placa");

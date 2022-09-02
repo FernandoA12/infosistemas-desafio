@@ -3,7 +3,9 @@ import { VehiclesRepository } from "../../domain/repositories/VehiclesRepository
 import { Connection } from "../database/Connection";
 
 export class VehiclesRepositoryJSONDB implements VehiclesRepository {
-  constructor(private connection: Connection) {}
+  constructor(private connection: Connection) {
+    this.connection.setCollection("vehicles");
+  }
 
   async save(vehicle: Vehicle): Promise<void> {
     await this.connection.create(vehicle.toData());

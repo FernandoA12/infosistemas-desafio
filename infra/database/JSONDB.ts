@@ -46,9 +46,10 @@ export class JSONDB implements Connection {
     if (existsSync(this.path)) {
       try {
         await this.read();
-      } catch (err: any) {
+      } catch {
         await this.write([]);
       }
+      return;
     }
     await this.write([]);
   }
@@ -62,13 +63,22 @@ export class JSONDB implements Connection {
   async get(query: any): Promise<any> {
     const document = await this.read();
 
-    return document.filter((doc) =>
-      Object.keys(query).some((key) => query[key] === doc[key])
-    );
+    if (Object.keys(query).length > 0) {
+      return document.filter((doc) =>
+        Object.keys(query).some((key) => query[key] === doc[key])
+      );
+    }
+
+    return document;
   }
 
   async delete(query: any): Promise<void> {
     const document = await this.read();
+
+    if (Object.keys(query).length <= 0) {
+      return;
+    }
+
     await this.write(
       document.filter(
         (doc) => !Object.keys(query).some((key) => query[key] === doc[key])
@@ -78,6 +88,11 @@ export class JSONDB implements Connection {
 
   async update(query: any, params: any): Promise<void> {
     const document = await this.read();
+
+    if (Object.keys(query).length <= 0) {
+      return;
+    }
+
     const documentsUpdated = document.map((doc) => {
       if (Object.keys(query).some((key) => query[key] === doc[key])) {
         doc = {
