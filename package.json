@@ -5,7 +5,9 @@
   "author": "Fernando Souza <fernando.souza@doxacode.com.br>",
   "license": "MIT",
   "scripts": {
-    "test": "mocha --watch tests/* application/* domain/*"
+    "test": "mocha tests/*",
+    "dev": "DEBUG=app:* ts-node-dev --respawn --transpile-only --ignore-watch node_modules index.ts",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/debug": "^4.1.7",
