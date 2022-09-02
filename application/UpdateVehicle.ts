@@ -16,6 +16,5 @@ export class UpdateVehicle {
 
     vehicle.update(data);
     await this.vehiclesRepository.update(id, vehicle);
-    return vehicle;
   }
 }

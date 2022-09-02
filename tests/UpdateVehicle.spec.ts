@@ -34,11 +34,11 @@ const updateVehicle = new UpdateVehicle(vehiclesRepository);
 
 describe("Update vehicle", () => {
   it("should update vehicle by id", async () => {
-    const vehicle = await updateVehicle.execute("1", {
+    await updateVehicle.execute("1", {
       ano: 2021,
     });
 
-    assert.deepEqual(vehicles[0].toData(), vehicle);
+    assert.deepEqual(vehicles[0].ano, 2021);
   });
 
   it("should throw an exception if the vehicle is not found", () => {
