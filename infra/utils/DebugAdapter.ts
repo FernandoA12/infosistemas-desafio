@@ -12,6 +12,7 @@ export class DebugAdapter implements Logger {
   }
 
   log(message: string): void {
+    console.clear();
     this.debug(message);
   }
 }
