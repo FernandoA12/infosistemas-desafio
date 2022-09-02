@@ -1,6 +1,6 @@
 import { VehiclesRepository } from "../domain/repositories/VehiclesRepository";
 
-export class ListVehicle {
+export class ListVehicles {
   constructor(private vehiclesRepository: Pick<VehiclesRepository, "list">) {}
 
   async execute() {

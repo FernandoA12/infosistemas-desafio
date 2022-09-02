@@ -1,7 +1,7 @@
 import { VehiclesRepository } from "../domain/repositories/VehiclesRepository";
 import { Vehicle } from "../domain/entities/Vehicle";
 import assert from "assert";
-import { ListVehicle } from "../application/ListVehicle";
+import { ListVehicles } from "../application/ListVehicles";
 
 const vehicles = [
   new Vehicle({
@@ -22,8 +22,8 @@ describe("List vehicle", () => {
         return vehicles;
       },
     };
-    const listVehicle = new ListVehicle(vehiclesRepository);
-    const list = await listVehicle.execute();
+    const listVehicles = new ListVehicles(vehiclesRepository);
+    const list = await listVehicles.execute();
 
     assert.deepEqual(list, [
       {
