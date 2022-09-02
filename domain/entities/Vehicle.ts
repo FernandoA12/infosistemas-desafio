@@ -10,7 +10,7 @@ export class Vehicle {
   public ano!: number;
 
   constructor(props: Omit<Vehicle, "toData">) {
-    const placaRegex = /^\w{3}\d{4}|^\w{3}\d{1}\w{1}\d{2}/i;
+    const placaRegex = /^[a-zA-Z]{3}\d{4}|^[a-zA-Z]{3}\d{1}[a-zA-Z]{1}\d{2}/i;
     const chassiRegex = /^\w{17}/i;
     const renavamRegex = /^\w{11}/i;
 
